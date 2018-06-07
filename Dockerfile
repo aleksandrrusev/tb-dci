@@ -9,4 +9,7 @@ RUN apt-get clean && apt-get update && apt-get install -y curl apt-transport-htt
     apt-get update && apt-get install -y yarn
 RUN apt-get install -y texlive texlive-latex-recommended texlive-fonts-recommended texlive-lang-cyrillic netcat
 
-RUN apt-get install -y --no-install-recommends postgresql-client
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" >> /etc/apt/sources.list && \
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
+    apt-get update
+RUN apt-get install -y --no-install-recommends postgresql-client-10
