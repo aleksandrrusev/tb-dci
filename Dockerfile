@@ -1,7 +1,7 @@
 FROM ruby:2.3.4
 
-RUN wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.gz
-RUN tar --strip-components 1 -xzf node-v8.9.4-linux-x64.tar.gz
+RUN wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.gz && \
+    tar --strip-components 1 -xzf node-v8.9.4-linux-x64.tar.gz
 
 RUN apt-get clean && apt-get update && apt-get install -y curl apt-transport-https && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
